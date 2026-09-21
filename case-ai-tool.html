@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Macau Beer localisation and AI workflow case: bilingual copy localisation, prompt design and human QA." />
+  <title>Macau Beer — Localisation + AI Workflow | Stefanie Ouyang</title>
+  <link rel="stylesheet" href="case.css?v=portfolio-20260921" />
+  <link rel="stylesheet" href="static-layout.css?v=658e0521ec" />
+  <link rel="stylesheet" href="motion.css?v=5eb313efcd" />
+  <link rel="stylesheet" href="interactions.css?v=58a4f6fda7" />
+  <link rel="stylesheet" href="hero.css?v=1aeab4ca57" />
+  <link rel="stylesheet" href="site-audit.css?v=159d2fa820" />
+</head>
+<body class="static-composition portfolio-case immersive-case case-ai-tool" data-visual-stage="2">
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Back to Stefanie Ouyang portfolio"><span class="brand-mark">SO</span><span>Stefanie Ouyang</span></a>
+      <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-haspopup="dialog" hidden>
+        <span data-i18n="hero.menuOpen">菜单</span><span class="menu-toggle-lines" aria-hidden="true"></span>
+      </button>
+      <div class="nav-tools"><nav class="nav-links" aria-label="Case navigation"><a href="index.html#cases" data-i18n="nav.allCases">All cases</a><a href="#prompt-origin" data-i18n="ai.navPrompt">原始 Prompt</a><a href="#results" data-i18n="nav.results">Results</a></nav><div class="language-switcher-wrap"><label class="sr-only" for="portfolio-language">Language</label><select id="portfolio-language" class="language-switcher" aria-label="Language"><option value="zh-CN">简体中文</option><option value="zh-TW">繁體中文</option><option value="en">English</option></select></div></div>
+    </div>
+  </header>
+  <dialog class="mobile-menu" id="mobile-menu" aria-labelledby="mobile-menu-title">
+    <div class="mobile-menu-top">
+      <span class="mobile-menu-title" id="mobile-menu-title">Stefanie Ouyang</span>
+      <button class="mobile-menu-close" type="button" autofocus><span data-i18n="hero.menuClose">关闭</span> <span aria-hidden="true">×</span></button>
+    </div>
+    <div class="mobile-menu-body"></div>
+  </dialog>
+
+  <main id="top">
+    <section class="hero chapter-stage case-opening art-left">
+        <figure class="chapter-art" aria-hidden="true"><img src="assets/qinggong-v2/case-ai-tool.png" alt="" width="1672" height="941" fetchpriority="high" decoding="async" /></figure>
+        <div class="chapter-copy">
+          <p class="case-kicker">04 · AI enablement · Localization</p>
+          <h1 data-i18n="case.aiHero">让 AI 进入业务细节，而不是停留在“帮我写一段文案”。</h1>
+          <p class="case-intro" data-i18n="ai.intro">从 Macau Beer 的 Facebook 双语贴文任务出发，把产品资料、品牌命名、粤语语感与发布要求写进结构化 Prompt，再将这些约束整理为文案校对规则。</p>
+          <div class="hero-meta"><span class="pill">Macau Beer</span><span class="pill">Cantonese copy</span><span class="pill">Prompt design</span><span class="pill">Team enablement</span></div>
+          <dl class="case-facts">
+            <div><dt>My role</dt><dd>Localisation / AI Workflow Design</dd></div>
+            <div><dt>Ownership</dt><dd>bilingual copy localisation, prompt design and QA workflow</dd></div>
+            <div><dt>Team</dt><dd>Not disclosed</dd></div>
+            <div><dt>Timeline</dt><dd>9-month campaign</dd></div>
+            <div><dt>Budget</dt><dd>Not disclosed</dd></div>
+          </dl>
+        </div>
+        </section>
+    <div class="wrap">
+      <section class="case-hero" style="border-top: 0;">
+                <div class="hero-art warm">
+          <img class="hero-art-image" src="assets/macau-beer-visual-02.png" alt="Macau Beer 社媒内容与本地化素材视觉" />
+          <div class="hero-art-copy"><p class="small">Local language, local trust</p><h2>Small wording choices shape brand credibility.</h2><p>把地区语言规范整理成可调用的工作工具，让本地化从个人经验变成团队能力。</p></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="brief-title">
+        <div class="section-head"><h2 id="brief-title" class="section-title">项目背景</h2><span class="section-index">01 / 09</span></div>
+        <div class="two-col">
+          <div><p class="lead" data-i18n="ai.contextLead">同一篇 Facebook 贴文，要让澳门本地人读得自然，也让旅客读得明白。</p><p class="body-copy" data-i18n="ai.contextBody">最初的工作要求很具体：先研究同行表达，再为澳门啤酒撰写粤语繁体与英语双语文案；既要区分白啤和金啤，也要守住品牌命名、用字习惯和固定发布附文。</p></div>
+          <div class="text-stack"><p>如果每次都靠人工记忆，审核会变慢，而且不同成员可能做出不同判断。于是我将问题拆成可识别、可训练、可复用的规则，再用 Monica 搭建一个团队可以直接调用的 Prompt 工具。</p><p>这是一个“小工具”，但背后的工作方式仍然是 GTM：识别市场触点中的摩擦，降低内容交付成本，并保护品牌在不同地区的表达一致性。</p><div class="source-note"><span class="source-chip user">项目工作：Macau Beer 本地化内容</span><span class="source-chip plan">工具：Monica + Structured Prompt</span></div></div>
+        </div>
+      </section>
+
+      <section id="method" aria-labelledby="problem-title">
+        <div class="section-head"><h2 id="problem-title" class="section-title">先把“语言问题”拆成四类</h2><span class="section-index">02 / 09</span></div>
+        <div class="card-grid">
+          <article class="card teal-card"><p class="label">01 · Spelling</p><h3>拼写与地区写法</h3><p>识别容易混用的地区拼写、品牌名称和产品型号，防止同一品牌在不同素材中出现多个写法。</p></article>
+          <article class="card"><p class="label">02 · Vocabulary</p><h3>词汇和表达习惯</h3><p>建立词汇替换表，区分书面表达、社交表达、活动用语与产品说明中的不同语气。</p></article>
+          <article class="card warm-card"><p class="label">03 · Tone</p><h3>品牌语气</h3><p>保留啤酒品牌应有的轻松感和生活方式气质，同时避免过度直译、过度正式或过度网络化。</p></article>
+          <article class="card"><p class="label">04 · Context</p><h3>上下文与合规</h3><p>判断词语放在节日、活动、产品教育或促销场景中是否自然，并提示可能需要人工确认的内容。</p></article>
+        </div>
+      </section>
+
+      <section id="prompt-origin" aria-labelledby="prompt-title">
+        <div class="section-head"><h2 id="prompt-title" class="section-title" data-i18n="ai.originTitle">项目起点：一份包含 14 项要求的原始 Prompt</h2><span class="section-index">03 / 09</span></div>
+        <p class="section-lead" data-i18n="ai.originIntro">这份原稿首先服务于双语内容创作，并不是一份软件规格书。它把实际工作中反复出现的要求写了下来，也成为后续整理校对规则的依据。</p>
+        <dl class="prompt-facts">
+          <div><dt data-i18n="ai.channel">发布平台</dt><dd>Facebook</dd></div>
+          <div><dt data-i18n="ai.audience">目标受众</dt><dd data-i18n="ai.audienceValue">澳门本地人及来澳旅客</dd></div>
+          <div><dt data-i18n="ai.output">交付语言</dt><dd data-i18n="ai.outputValue">粤语（繁体中文）与英语</dd></div>
+        </dl>
+        <div class="prompt-products">
+          <article><h3>Macau Beer White Ale</h3><p data-i18n="ai.white">澳门白啤：比利时风味精酿白啤，采用欧洲古典上层发酵工艺；酒体朦胧微白，泡沫细腻，蕴含酵母与浓郁果香。</p><p class="prompt-product-spec" translate="no">11.8°P · 4.7% vol</p></article>
+          <article><h3>Macau Beer Golden Ale</h3><p data-i18n="ai.golden">澳门金啤：经典精酿艾尔，采用欧洲古典上层发酵工艺；增加焦香麦芽，融汇四种酒花，突出麦香、香气与易入口的酒体。</p><p class="prompt-product-spec" translate="no">11°P · 4.6% vol</p></article>
+        </div>
+        <details class="prompt-source">
+          <summary data-i18n="ai.originalToggle">阅读原始工作 Prompt · 14 项要求</summary>
+          <p class="prompt-source-note" data-i18n="ai.originalNote">以下保留原稿中的措辞、用字与格式。原始任务要求和后续整理出的校对规则分开展示。</p>
+          <pre class="prompt-original">澳门啤酒要在他们的FB社媒平台上，发布几社媒贴文，以下的贴文是需要你搜索相关同行的文案后，针对澳门啤酒这个品牌，量身定制出的一篇双语文案：粤语（繁体中文）以及英语（地道英语）
+
+1. 贴文的受众均为澳门本地人以及澳门旅客
+2. 澳门啤酒的专业用法， 澳门白啤;Macau Beer White Ale;澳门金啤：Macau Beer  Golden  Ale;澳门啤酒：Macau Beer. 如果需要表达澳门这座城市，请使用'Macao'. 注意不要混淆
+3. 澳门白啤的相关信息：比利时风味白啤酒（精酿）；采用欧洲古典上层发酵工艺；酒体朦胧微白，泡沫奶油般细腻；蕴含酵母，果香浓郁、优雅；11.8 ° P，4.7%vol/澳门金啤的相关信息：经典艾尔啤酒（精酿）;采用欧洲古典上层发酵工艺; 焦香麦芽增多，麦香更充足; 融汇四种酒花，香气更丰富; 酒精含量调整，酒液更易入口; 11°P，4.6%vol
+4. 由于文案需要出双语版本，因此粤语与英文所添加的emojis不能重复，避免审美疲劳，尽量用活泼、明亮的语言写贴文
+5. 字数不宜过长，注意添加以下的hashtags： #MacauBeer #澳門啤酒 #マカオビール #마카오맥주#DrinkLocal #樂享澳門之魅
+6. 文案的顺序：粤语、英文、hashtags、限酒令
+7. 限酒令信息：
+⛔過量飲酒危害健康
+CONSUMIR BEBIDAS ALCOÓLICAS EM EXCESSO PREJUDICA A SAÚDE
+EXCESSIVE DRINKING OF ALCOHOLIC BEVERAGES IS HARMFUL TO HEALTH
+⛔禁止向未滿十八歲人士銷售或提供酒精飲料
+A VENDA OU DISPONIBILIZAÇÃO DE BEBIDAS ALCOÓLICAS A MENORES DE 18 ANOS É PROIBIDA
+THE SALE OR SUPPLY OF ALCOHOLIC BEVERAGES TO ANYONE UNDER THE AGE OF 18 IS PROHIBITED
+8. 请注意撰写文案时不要拘束于“无论.....还是....."这种表达方式，可以思维开阔一些 用不同的措辞
+9. 请你一定要先搜索相关资料，再执行撰写文案的任务
+10. 另外在输出粤语文案的时候，如果要用到“浓郁”這樣的詞語，請不要用”濃鬱”，而使用”濃郁”； 粵語裏的”試一下”，口語詞要用”下”，而不是”吓”。请不要使用“臺”，要用“台”
+11. 注意输出的文案的标点符号要分清楚，中文文案用中文标题，英文文案用英文标题
+12. 文案请去AI化 不能太死板，先分析理解信息，再搜索相关信息，最后输出文案
+13. 一起举杯 感受魅力 这些词语请不要重复利用，请你设计出有创意性，令人眼前一亮的文案
+14. 文案中 中文以及英文的符号要分清楚 不能弄混</pre>
+        </details>
+      </section>
+
+      <section aria-labelledby="spec-title">
+        <div class="section-head"><h2 id="spec-title" class="section-title" data-i18n="ai.rulesTitle">从原始要求，到可复用的校对规则</h2><span class="section-index">04 / 09</span></div>
+        <div class="prompt-rules">
+          <article><p class="label">01 / Research &amp; Audience</p><h3 data-i18n="ai.r1title">先明确对象，再研究表达</h3><p data-i18n="ai.r1">原稿第 1、9、12 项要求先理解任务、研究同行，再撰写内容。对应到审核时，先确认贴文服务本地人还是旅客，以及城市、活动和产品信息是否准确。</p></article>
+          <article><p class="label">02 / Brand Glossary</p><h3 data-i18n="ai.r2title">城市名与品牌名分开管理</h3><p data-i18n="ai.r2">第 2 项明确区分城市 Macao 与品牌 Macau Beer；白啤和金啤分别保留完整英文产品名，避免把品牌拼写随城市写法一起替换。</p></article>
+          <article><p class="label">03 / Product Facts</p><h3 data-i18n="ai.r3title">先锁定产品事实，再润色</h3><p data-i18n="ai.r3">第 3 项给出了两款产品的工艺、风味、原麦汁浓度与酒精度。校对时分别核对，不把白啤的果香、11.8°P 与 4.7% vol 套到金啤上。</p></article>
+          <article><p class="label">04 / Cantonese &amp; Punctuation</p><h3 data-i18n="ai.r4title">用具体词例定义本地语感</h3><p data-i18n="ai.r4">第 10、11、14 项落实到明确的检查项：「濃郁」不用「濃鬱」，「試下」不用「試吓」，本项目采用「台」；中文与英文各用对应标点。</p></article>
+          <article><p class="label">05 / Publishing Checklist</p><h3 data-i18n="ai.r5title">把固定发布格式做成检查清单</h3><p data-i18n="ai.r5">第 4–7 项规定粤语、英文、Hashtags、饮酒警示的顺序，并要求双语 Emoji 不重复。发布前逐项检查标签分隔、附文完整性与语言顺序。</p></article>
+          <article><p class="label">06 / Editorial Judgment</p><h3 data-i18n="ai.r6title">将规则校对与编辑判断分开</h3><p data-i18n="ai.r6">第 8、12、13 项关注句式和创意，限制反复使用「一起举杯」「感受魅力」等表达。规则负责提示重复，创意是否贴合主题仍由人工判断。</p></article>
+        </div>
+        <div class="prompt-example">
+          <p class="label" data-i18n="ai.exampleLabel">规则应用示意 · 非历史输出截图</p>
+          <p><span>城市：Macau → Macao</span><span>品牌：Macau Beer → Macau Beer</span><span>用字：濃鬱 → 濃郁</span><span>口语：試吓 → 試下</span></p>
+        </div>
+        <p class="section-note" data-i18n="ai.rulesNote">这里展示的是品牌项目的用语规范，而非所有粤语场景的唯一写法；涉及活动事实、发布附文和品牌决策，仍保留人工终审。</p>
+      </section>
+
+      <section aria-labelledby="operation-title">
+        <div class="section-head"><h2 id="operation-title" class="section-title">从工具到团队习惯</h2><span class="section-index">05 / 09</span></div>
+        <div class="two-col equal">
+          <div class="card"><p class="label">Documentation</p><h3>做一页说明，而不是只发一个链接</h3><p>说明什么时候使用、需要输入什么、哪些结果必须人工确认，以及如何将新错误加入错误库，降低团队第一次使用的门槛。</p></div>
+          <div class="card"><p class="label">Feedback</p><h3>让最终版本反哺规则</h3><p>每次人工修改都是新的业务样本。把“为什么这样改”记录下来，工具才不会停留在一次性演示。</p></div>
+        </div>
+        <div class="callout" style="margin-top: 18px;"><p>AI 解决的不是“替代本地化判断”，而是把隐性经验显性化，让更多人能够按照同一套标准开始工作。</p><small>使用原则：规则可解释、结果可复核、品牌决策保留人工确认。</small></div>
+      </section>
+
+      <section id="results" aria-labelledby="results-title">
+        <div class="section-head"><h2 id="results-title" class="section-title">成果：从个人经验到标准化解决方案</h2><span class="section-index">06 / 09</span></div>
+        <p class="section-lead" data-i18n="ai.resultsLead">可直接展示的交付包括原始 Prompt、品牌词汇规则和双语文案样例。账号增长与互动属于 Macau Beer 整体传播项目的结果。</p>
+        <div class="stat-strip three" style="margin-top: 30px;">
+          <div class="stat"><div class="stat-value">14</div><div class="stat-label" data-i18n="ai.requirements">原始工作要求</div><div class="stat-source">Original Working Prompt</div></div>
+          <div class="stat"><div class="stat-value">5K</div><div class="stat-label">Macau Beer 9 个月增粉</div><div class="stat-source">Macau Beer overall communications project result</div></div>
+          <div class="stat"><div class="stat-value">10K+</div><div class="stat-label">整体项目互动量</div><div class="stat-source">Macau Beer project result</div></div>
+        </div>
+        <div class="card-grid two" style="margin-top: 18px;">
+          <article class="card"><p class="label">Direct value</p><h3>本地化质量变得更可控</h3><p>团队有了统一的词汇、语气与审核入口，跨地区沟通不再完全依赖某一个人的记忆。</p></article>
+          <article class="card warm-card"><p class="label">Project context</p><h3>把工具放回传播全案</h3><p>Macau Beer 同时配合内容支柱、活动、微型 KOL、优惠二维码与折扣码等动作。9 个月增粉、互动与线下销售属于整体传播结果，不将它们单独归因于 AI 工具。</p></article>
+        </div>
+        <p class="evidence">Macau Beer 整体传播项目记录了 100K+ MOP in offline sales；该数字属于完整项目结果，不是 AI 校对工具的单独结果。</p>
+      </section>
+
+      <section aria-labelledby="asset-title">
+        <div class="section-head"><h2 id="asset-title" class="section-title">相关素材</h2><span class="section-index">07 / 09</span></div>
+        <div class="social-proof">
+          <div class="social-proof-head"><div><p class="label">Published content samples</p><h3>把澳门文化、产品知识和本地语境写进贴文。</h3></div><p>这些素材来自 Macau Beer 账号作品，展示城市文化、啤酒知识、餐饮搭配与本地节奏如何被组织成可持续的内容支柱。</p></div>
+          <div class="social-grid">
+            <figure class="social-card"><img src="assets/social/macau-beer-night.jpg" alt="Macau Beer 夜间城市文化贴文" /><figcaption><strong>Place / culture</strong>用夜间城市氛围建立本地品牌的生活方式入口。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-flower.jpg" alt="Macau Beer 花卉与啤酒贴文" /><figcaption><strong>Season / mood</strong>把节气、色彩和饮用场景连成轻松的视觉表达。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-hops.jpg" alt="Macau Beer 啤酒花知识贴文" /><figcaption><strong>Education / product</strong>将啤酒知识拆成易于理解、适合社媒阅读的内容单元。</figcaption></figure>
+            <figure class="social-card"><video controls muted loop playsinline preload="metadata" poster="assets/social/macau-beer-night.jpg" aria-label="Macau Beer cocktail 视频贴文"><source src="assets/social/macau-beer-cocktail.mp4" type="video/mp4" /></video><figcaption><strong>Food / pairing</strong>用餐饮搭配和动态内容把产品放进真实消费时刻。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-world-tour.jpg" alt="Macau Beer World Tourism Day 城市旅行贴文" /><figcaption><strong>Place / travel</strong>将世界旅游日转成澳门城市漫游与品牌陪伴感。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-glassware.jpg" alt="Macau Beer beer glass education 贴文" /><figcaption><strong>Education / ritual</strong>用杯型知识降低啤酒教育门槛，增加内容保存价值。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-national-day.jpg" alt="Macau Beer National Day and Macao return anniversary 贴文" /><figcaption><strong>Culture / occasion</strong>把国家节日和澳门本地身份放进品牌祝贺内容。</figcaption></figure>
+            <figure class="social-card"><video controls muted loop playsinline preload="metadata" poster="assets/social/macau-beer-flower.jpg" aria-label="Macau Beer Yakult beer pairing 视频贴文"><source src="assets/social/macau-beer-yakult.mp4" type="video/mp4" /></video><figcaption><strong>Pairing / experiment</strong>通过反差搭配制造尝试动机与社交传播话题。</figcaption></figure>
+            <figure class="social-card"><video controls muted loop playsinline preload="metadata" poster="assets/social/macau-beer-night.jpg" aria-label="Macau Beer white beer brand video 贴文"><source src="assets/social/macau-beer-white-beer.mp4" type="video/mp4" /></video><figcaption><strong>Brand / product</strong>以白啤的城市气质和产品故事建立品牌记忆。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-taipa.jpg" alt="Macau Beer Taipa travel route 贴文" /><figcaption><strong>Local / route</strong>把具体街区和旅行路线变成可参与的本地内容。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-art-district.jpg" alt="Macau Beer art district travel 贴文" /><figcaption><strong>Local / culture</strong>以望德堂文艺游连接城市探索、年轻语气和品牌场景。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-reunification.jpg" alt="Macau Beer Macao return anniversary 贴文" /><figcaption><strong>Heritage / occasion</strong>用历史节点表达城市共同记忆与品牌在地性。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-memory.jpg" alt="Macau Beer 2024 memorable moments 贴文" /><figcaption><strong>Community / recap</strong>回顾年度时刻，让受众参与选择自己的品牌记忆。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-stars.jpg" alt="Macau Beer under the stars lifestyle 贴文" /><figcaption><strong>Lifestyle / mood</strong>用夜空、泡沫与漫游感构建轻松的饮用情绪。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-wishes.jpg" alt="Macau Beer 2025 wishes 贴文" /><figcaption><strong>New year / engagement</strong>把新年愿望写成受众可以回应和分享的互动内容。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-level-up.jpg" alt="Macau Beer Level Up New Year 贴文" /><figcaption><strong>New year / product</strong>用新年语气承接酒花、麦香和品牌产品特征。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-origin.jpg" alt="Macau Beer origin and white ale story 贴文" /><figcaption><strong>Origin / story</strong>讲清品牌来源、酿造工艺与白色艾尔的产品识别。</figcaption></figure>
+            <figure class="social-card"><img src="assets/social/macau-beer-shrimp.jpg" alt="Macau Beer shrimp food pairing 贴文" /><figcaption><strong>Food / pairing</strong>用海鲜搭配把产品教育落到具体餐桌体验。</figcaption></figure>
+          </div>
+          <div class="social-meta"><span>Local culture</span><span>Beer education</span><span>Food pairing</span><span>Macao / Hong Kong</span></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="copy-lab-title">
+        <div class="section-head"><h2 id="copy-lab-title" class="section-title">Facebook 双语文案实验区</h2><span class="section-index">08 / 09</span></div>
+        <div class="copy-lab">
+          <div class="copy-lab-head">
+            <div><p class="label">Prompt → Bilingual Drafts</p><h3 data-i18n="ai.draftsTitle">按同一份 Brief，展示三种内容切入。</h3></div>
+            <p>示范稿按澳门本地人及旅客的阅读场景设计，保留产品事实、粤语语感、地道英语和固定限酒令；这些是文案草稿，不代表已经发布或产生了新增数据。</p>
+          </div>
+          <div class="copy-brief">
+            <div class="copy-brief-item"><span>Audience</span><p>澳门本地人<br />来澳旅客</p></div>
+            <div class="copy-brief-item"><span>Channel</span><p>Facebook<br />双语贴文</p></div>
+            <div class="copy-brief-item"><span>Content angles</span><p>城市夜色 · 产品风味<br />餐饮搭配 · 旅程场景</p></div>
+            <div class="copy-brief-item"><span>QA rules</span><p>Macao / Macau<br />产品名 · emoji · 限酒令</p></div>
+          </div>
+          <div class="copy-grid">
+            <article class="copy-card">
+              <img src="assets/social/macau-beer-stars.jpg" alt="Macau Beer under the stars lifestyle visual" />
+              <div class="copy-card-body">
+                <h3 class="copy-card-title">01 · 白啤 × 城市夜色</h3>
+                <p class="copy-card-angle">White Ale · City evening</p>
+                <div class="copy-language" data-reading-language="zh">
+                  <h4>中文標題</h4>
+                  <p class="copy-text"><strong>行完街，飲返口澳門白啤</strong><br />由大三巴行到夜色亮起，最適合留返一個慢慢飲嘅時刻。澳門白啤酒體朦朧微白，泡沫奶油般細膩；酵母帶出濃郁而優雅嘅果香，將澳門嘅夜，飲得更有層次。🌙🍊<br /><strong>澳門白啤｜比利時風味白啤酒（精釀）｜11.8°P｜4.7%vol</strong></p>
+                </div>
+                <div class="copy-language" data-reading-language="en">
+                  <h4>English title</h4>
+                  <p class="copy-text"><strong>Slow down with White Ale in Macao.</strong><br />From the Ruins of St. Paul’s to Macao’s city lights, leave room for a slower moment. Macau Beer White Ale brings a hazy body, creamy foam and an elegant fruit aroma from the yeast — a Belgian-style craft white ale made with traditional European top fermentation. ✨🫧<br /><strong>Macau Beer White Ale | 11.8°P | 4.7% vol</strong></p>
+                </div>
+                <p class="copy-hashtags">#MacauBeer #澳門啤酒 #マカオビール #마카오맥주 #DrinkLocal #樂享澳門之魅</p>
+              </div>
+            </article>
+
+            <article class="copy-card">
+              <img src="assets/social/macau-beer-shrimp.jpg" alt="Macau Beer Golden Ale food pairing visual" />
+              <div class="copy-card-body">
+                <h3 class="copy-card-title">02 · 金啤 × 澳門餐桌</h3>
+                <p class="copy-card-angle">Golden Ale · Food pairing</p>
+                <div class="copy-language" data-reading-language="zh">
+                  <h4>中文標題</h4>
+                  <p class="copy-text"><strong>海風未散，金啤先到</strong><br />海風、燒味、啤酒花，澳門嘅夜晚可以有幾多種香氣？澳門金啤以焦香麥芽帶出更充足嘅麥香，再融匯四種酒花，香氣更豐富，酒液更易入口。配上海鮮、燒味或者葡式小食，啱啱好。🍤🌆<br /><strong>澳門金啤｜經典艾爾啤酒（精釀）｜11°P｜4.6%vol</strong></p>
+                </div>
+                <div class="copy-language" data-reading-language="en">
+                  <h4>English title</h4>
+                  <p class="copy-text"><strong>A Golden Ale made for the Macao table.</strong><br />Macao evenings have more than one kind of aroma. Macau Beer Golden Ale brings toasted malt, a fuller malt character and the lift of four different hops. Easy-drinking, with enough character for seafood, roast meats and Macanese bites. 🔥🌾<br /><strong>Macau Beer Golden Ale | 11°P | 4.6% vol</strong></p>
+                </div>
+                <p class="copy-hashtags">#MacauBeer #澳門啤酒 #マカオビール #마카오맥주 #DrinkLocal #樂享澳門之魅</p>
+              </div>
+            </article>
+
+            <article class="copy-card">
+              <img src="assets/social/macau-beer-taipa.jpg" alt="Macau Beer local travel visual in Taipa" />
+              <div class="copy-card-body">
+                <h3 class="copy-card-title">03 · 品牌 × 旅程收尾</h3>
+                <p class="copy-card-angle">Macau Beer · Local travel</p>
+                <div class="copy-language" data-reading-language="zh">
+                  <h4>中文標題</h4>
+                  <p class="copy-text"><strong>旅程最後一站，留返本地味道</strong><br />行程去到最後一站，唔使急住離開。由街角小食、葡式風味，到夜色裡嘅城市故事，澳門啤酒將一口本地味道，留喺你嘅澳門旅程入面。📍🎒<br /><strong>澳門啤酒｜源自澳門</strong></p>
+                </div>
+                <div class="copy-language" data-reading-language="en">
+                  <h4>English title</h4>
+                  <p class="copy-text"><strong>Leave room for a taste of Macao.</strong><br />Your final stop in Macao does not have to be a rush. Make room for local bites, Portuguese flavours and the city stories that stay with you after dark. Macau Beer brings a taste of Macao to the final page of your trip. 🧭🍴<br /><strong>Macau Beer | Originated in Macao</strong></p>
+                </div>
+                <p class="copy-hashtags">#MacauBeer #澳門啤酒 #マカオビール #마카오맥주 #DrinkLocal #樂享澳門之魅</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="copy-qa">
+            <div class="copy-qa-panel"><h4>Brief → Content</h4><p data-i18n="ai.draftsNote">示范稿分别从城市探索、餐饮搭配和旅程收尾切入。它们用于呈现原始 Brief 的应用方式，不作为历史发布记录或工具效果的量化证明。</p></div>
+            <div class="copy-qa-panel"><h4>Prompt QA</h4><p>英文城市统一使用 Macao；品牌和产品保留 Macau Beer、Macau Beer White Ale、Macau Beer Golden Ale；中文使用「濃郁」「試下」「台」，并让中英文 emoji 不重复。</p></div>
+          </div>
+          <p class="copy-research">Research references: <a href="https://www.macaubeer.com/en/products/" target="_blank" rel="noreferrer">Macau Beer official product information</a> · <a href="https://www.macaotourism.gov.mo/en/events/whatson/8789" target="_blank" rel="noreferrer">Macao Tourism local craft beer context</a> · <a href="https://www.tasteatlas.com/macau-beer-golden-ale" target="_blank" rel="noreferrer">Food pairing reference</a></p>
+          <div class="legal-panel">
+            <h4>Fixed alcohol notice · 每篇贴文末尾固定附上</h4>
+            <p>⛔過量飲酒危害健康<br />CONSUMIR BEBIDAS ALCOÓLICAS EM EXCESSO PREJUDICA A SAÚDE<br />EXCESSIVE DRINKING OF ALCOHOLIC BEVERAGES IS HARMFUL TO HEALTH<br /><br />⛔禁止向未滿十八歲人士銷售或提供酒精飲料<br />A VENDA OU DISPONIBILIZAÇÃO DE BEBIDAS ALCOÓLICAS A MENORES DE 18 ANOS É PROIBIDA<br />THE SALE OR SUPPLY OF ALCOHOLIC BEVERAGES TO ANYONE UNDER THE AGE OF 18 IS PROHIBITED</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="capability-title">
+        <div class="section-head"><h2 id="capability-title" class="section-title">我在这个案例里证明的能力</h2><span class="section-index">09 / 09</span></div>
+        <div class="card-grid">
+          <article class="card"><p class="label">Localization</p><h3>理解语言背后的市场语境</h3><p>把地区差异拆成词汇、语气、场景和品牌信任问题，而不是只检查字面错误。</p></article>
+          <article class="card"><p class="label">AI application</p><h3>把 AI 变成工作流组件</h3><p>使用结构化 Prompt、词库和错误库，让工具能够被复核、被更新、被团队复用。</p></article>
+          <article class="card"><p class="label">Enablement</p><h3>把个人能力转成团队能力</h3><p>通过一页说明、输入规范和人工审核机制，让 AI 真正进入日常内容生产。</p></article>
+        </div>
+      </section>
+
+      <div class="footer-cta"><h2>细节被认真对待，品牌才会被真正信任。</h2><a class="back" href="index.html#cases" data-i18n="cta.back">← 返回全部案例</a></div>
+      <footer><span>© 2026 Stefanie Ouyang</span><span>AI Localization Enablement</span></footer>
+    </div>
+  </main>
+  <script id="page-translations" type="application/json">
+{
+  "ai.navPrompt": [
+    "原始 Prompt",
+    "原始 Prompt",
+    "Original Prompt"
+  ],
+  "ai.intro": [
+    "从 Macau Beer 的 Facebook 双语贴文任务出发，把产品资料、品牌命名、粤语语感与发布要求写进结构化 Prompt，再将这些约束整理为文案校对规则。",
+    "從 Macau Beer 的 Facebook 雙語貼文任務出發，把產品資料、品牌命名、粵語語感與發布要求寫進結構化 Prompt，再將這些約束整理為文案校對規則。",
+    "The starting point was a Facebook bilingual copy brief for Macau Beer. I translated product information, brand terminology, Cantonese usage and publishing requirements into a structured prompt, then organized those constraints into copy-review rules."
+  ],
+  "ai.contextLead": [
+    "同一篇 Facebook 贴文，要让澳门本地人读得自然，也让旅客读得明白。",
+    "同一篇 Facebook 貼文，要讓澳門本地人讀得自然，也讓旅客讀得明白。",
+    "One Facebook post needed to feel natural to Macao residents and accessible to visitors."
+  ],
+  "ai.contextBody": [
+    "最初的工作要求很具体：先研究同行表达，再为澳门啤酒撰写粤语繁体与英语双语文案；既要区分白啤和金啤，也要守住品牌命名、用字习惯和固定发布附文。",
+    "最初的工作要求很具體：先研究同行表達，再為澳門啤酒撰寫粵語繁體與英語雙語文案；既要區分白啤和金啤，也要守住品牌命名、用字習慣和固定發布附文。",
+    "The original brief was specific: research peer brands before writing Traditional Chinese Cantonese and English copy for Macau Beer. Distinguish White Ale from Golden Ale, preserve approved brand names and local wording, and include the required publishing notices."
+  ],
+  "ai.originTitle": [
+    "项目起点：一份包含 14 项要求的原始 Prompt",
+    "項目起點：一份包含 14 項要求的原始 Prompt",
+    "The Starting Point: An Original Prompt With 14 Requirements"
+  ],
+  "ai.originIntro": [
+    "这份原稿首先服务于双语内容创作，并不是一份软件规格书。它把实际工作中反复出现的要求写了下来，也成为后续整理校对规则的依据。",
+    "這份原稿首先服務於雙語內容創作，並不是一份軟件規格書。它把實際工作中反覆出現的要求寫了下來，也成為後續整理校對規則的依據。",
+    "This document began as a bilingual content brief, not a software specification. It captured recurring requirements from the actual work and provided a basis for organizing the subsequent review rules."
+  ],
+  "ai.channel": [
+    "发布平台",
+    "發布平台",
+    "Platform"
+  ],
+  "ai.audience": [
+    "目标受众",
+    "目標受眾",
+    "Audience"
+  ],
+  "ai.audienceValue": [
+    "澳门本地人及来澳旅客",
+    "澳門本地人及來澳旅客",
+    "Macao residents and visitors"
+  ],
+  "ai.output": [
+    "交付语言",
+    "交付語言",
+    "Languages"
+  ],
+  "ai.outputValue": [
+    "粤语（繁体中文）与英语",
+    "粵語（繁體中文）與英語",
+    "Cantonese (Traditional Chinese) and English"
+  ],
+  "ai.white": [
+    "澳门白啤：比利时风味精酿白啤，采用欧洲古典上层发酵工艺；酒体朦胧微白，泡沫细腻，蕴含酵母与浓郁果香。",
+    "澳門白啤：比利時風味精釀白啤，採用歐洲古典上層發酵工藝；酒體朦朧微白，泡沫細膩，蘊含酵母與濃郁果香。",
+    "Macau Beer White Ale: a Belgian-style craft white ale made using traditional European top fermentation. The brief describes a pale, hazy body, creamy foam, yeast and rich fruit aromas."
+  ],
+  "ai.golden": [
+    "澳门金啤：经典精酿艾尔，采用欧洲古典上层发酵工艺；增加焦香麦芽，融汇四种酒花，突出麦香、香气与易入口的酒体。",
+    "澳門金啤：經典精釀艾爾，採用歐洲古典上層發酵工藝；增加焦香麥芽，融匯四種酒花，突出麥香、香氣與易入口的酒體。",
+    "Macau Beer Golden Ale: a classic craft ale made using traditional European top fermentation. The brief emphasizes more toasted malt, four hop varieties, fuller malt character and an easy-drinking profile."
+  ],
+  "ai.originalToggle": [
+    "阅读原始工作 Prompt · 14 项要求",
+    "閱讀原始工作 Prompt · 14 項要求",
+    "Read the Original Working Prompt · 14 Requirements"
+  ],
+  "ai.originalNote": [
+    "以下保留原稿中的措辞、用字与格式。原始任务要求和后续整理出的校对规则分开展示。",
+    "以下保留原稿中的措辭、用字與格式。原始任務要求和後續整理出的校對規則分開展示。",
+    "The original Chinese brief is preserved below, including its wording and formatting. It is presented separately from the review rules subsequently organized from it."
+  ],
+  "ai.rulesTitle": [
+    "从原始要求，到可复用的校对规则",
+    "從原始要求，到可複用的校對規則",
+    "From the Original Brief to Reusable Review Rules"
+  ],
+  "ai.r1title": [
+    "先明确对象，再研究表达",
+    "先明確對象，再研究表達",
+    "Define the Audience Before Researching the Copy"
+  ],
+  "ai.r1": [
+    "原稿第 1、9、12 项要求先理解任务、研究同行，再撰写内容。对应到审核时，先确认贴文服务本地人还是旅客，以及城市、活动和产品信息是否准确。",
+    "原稿第 1、9、12 項要求先理解任務、研究同行，再撰寫內容。對應到審核時，先確認貼文服務本地人還是旅客，以及城市、活動和產品資訊是否準確。",
+    "Requirements 1, 9 and 12 call for understanding the task and researching peers before writing. In review, this becomes a check of the intended audience and the accuracy of city, event and product information."
+  ],
+  "ai.r2title": [
+    "城市名与品牌名分开管理",
+    "城市名與品牌名分開管理",
+    "Separate Place Names From Brand Names"
+  ],
+  "ai.r2": [
+    "第 2 项明确区分城市 Macao 与品牌 Macau Beer；白啤和金啤分别保留完整英文产品名，避免把品牌拼写随城市写法一起替换。",
+    "第 2 項明確區分城市 Macao 與品牌 Macau Beer；白啤和金啤分別保留完整英文產品名，避免把品牌拼寫隨城市寫法一起替換。",
+    "Requirement 2 distinguishes Macao, the city, from Macau Beer, the brand. Each ale keeps its full English product name, so correcting the place name must never change the brand spelling."
+  ],
+  "ai.r3title": [
+    "先锁定产品事实，再润色",
+    "先鎖定產品事實，再潤色",
+    "Lock Product Facts Before Editing the Tone"
+  ],
+  "ai.r3": [
+    "第 3 项给出了两款产品的工艺、风味、原麦汁浓度与酒精度。校对时分别核对，不把白啤的果香、11.8°P 与 4.7% vol 套到金啤上。",
+    "第 3 項給出了兩款產品的工藝、風味、原麥汁濃度與酒精度。校對時分別核對，不把白啤的果香、11.8°P 與 4.7% vol 套到金啤上。",
+    "Requirement 3 supplies the brewing process, flavor profile, original extract and alcohol content for each ale. Review them separately: the White Ale’s fruit aromas, 11.8°P and 4.7% vol must not be assigned to Golden Ale."
+  ],
+  "ai.r4title": [
+    "用具体词例定义本地语感",
+    "用具體詞例定義本地語感",
+    "Make Local Usage Concrete"
+  ],
+  "ai.r4": [
+    "第 10、11、14 项落实到明确的检查项：「濃郁」不用「濃鬱」，「試下」不用「試吓」，本项目采用「台」；中文与英文各用对应标点。",
+    "第 10、11、14 項落實到明確的檢查項：「濃郁」不用「濃鬱」，「試下」不用「試吓」，本項目採用「台」；中文與英文各用對應標點。",
+    "Requirements 10, 11 and 14 become explicit checks: use 濃郁 rather than 濃鬱, 試下 rather than 試吓, and 台 for this project. Apply Chinese and English punctuation to their respective language blocks."
+  ],
+  "ai.r5title": [
+    "把固定发布格式做成检查清单",
+    "把固定發布格式做成檢查清單",
+    "Turn Publishing Requirements Into a Checklist"
+  ],
+  "ai.r5": [
+    "第 4–7 项规定粤语、英文、Hashtags、饮酒警示的顺序，并要求双语 Emoji 不重复。发布前逐项检查标签分隔、附文完整性与语言顺序。",
+    "第 4–7 項規定粵語、英文、Hashtags、飲酒警示的順序，並要求雙語 Emoji 不重複。發布前逐項檢查標籤分隔、附文完整性與語言順序。",
+    "Requirements 4–7 set the order: Cantonese, English, hashtags, then alcohol notices. Emojis must differ between the two language blocks. Check hashtag spacing, complete notices and language order before publication."
+  ],
+  "ai.r6title": [
+    "将规则校对与编辑判断分开",
+    "將規則校對與編輯判斷分開",
+    "Keep Editorial Judgment With the Editor"
+  ],
+  "ai.r6": [
+    "第 8、12、13 项关注句式和创意，限制反复使用「一起举杯」「感受魅力」等表达。规则负责提示重复，创意是否贴合主题仍由人工判断。",
+    "第 8、12、13 項關注句式和創意，限制反覆使用「一起舉杯」「感受魅力」等表達。規則負責提示重複，創意是否貼合主題仍由人工判斷。",
+    "Requirements 8, 12 and 13 address sentence variety and creativity, discouraging repeated stock phrases. Rules can flag repetition; an editor still decides whether the idea fits the topic."
+  ],
+  "ai.exampleLabel": [
+    "规则应用示意 · 非历史输出截图",
+    "規則應用示意 · 非歷史輸出截圖",
+    "Rule Application Examples · Not Historical Tool Output"
+  ],
+  "ai.rulesNote": [
+    "这里展示的是品牌项目的用语规范，而非所有粤语场景的唯一写法；涉及活动事实、发布附文和品牌决策，仍保留人工终审。",
+    "這裡展示的是品牌項目的用語規範，而非所有粵語場景的唯一寫法；涉及活動事實、發布附文和品牌決策，仍保留人工終審。",
+    "These are project-specific language standards, not universal rules for all Cantonese usage. Event facts, publishing notices and brand decisions remain subject to final human review."
+  ],
+  "ai.resultsLead": [
+    "可直接展示的交付包括原始 Prompt、品牌词汇规则和双语文案样例。账号增长与互动属于 Macau Beer 整体传播项目的结果。",
+    "可直接展示的交付包括原始 Prompt、品牌詞彙規則和雙語文案樣例。帳號增長與互動屬於 Macau Beer 整體傳播項目的結果。",
+    "The work shown includes the original prompt, brand terminology rules and bilingual copy examples. Account growth and engagement belong to the overall Macau Beer communications project."
+  ],
+  "ai.requirements": [
+    "原始工作要求",
+    "原始工作要求",
+    "Original Brief Requirements"
+  ],
+  "ai.draftsTitle": [
+    "按同一份 Brief，展示三种内容切入。",
+    "按同一份 Brief，展示三種內容切入。",
+    "One Brief, Three Content Angles"
+  ],
+  "ai.draftsNote": [
+    "示范稿分别从城市探索、餐饮搭配和旅程收尾切入。它们用于呈现原始 Brief 的应用方式，不作为历史发布记录或工具效果的量化证明。",
+    "示範稿分別從城市探索、餐飲搭配和旅程收尾切入。它們用於呈現原始 Brief 的應用方式，不作為歷史發布記錄或工具效果的量化證明。",
+    "The sample drafts explore the city, food pairing and the end of a trip. They illustrate how the original brief can be applied; they are not historical publishing records or measured evidence of tool performance."
+  ]
+}
+  </script>
+  <script src="translations.js?v=portfolio-20260921"></script>
+  <script src="site-i18n.js?v=portfolio-20260921"></script>
+  <script src="static-layout.js?v=444366b9fc"></script>
+  <script src="motion.js?v=150de00912"></script>
+  <script src="interactions.js?v=764c48373c"></script>
+  <script src="hero.js?v=e321307b54"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* Stage 3: local overlays only; the confirmed artwork and layout stay intact. */
+.plum-canvas { position: relative; width: 100%; aspect-ratio: 1672 / 941; }
+.plum-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; }
+.plum-region { position: absolute; left: 63%; top: 13%; width: 33%; height: 40%; pointer-events: none; }
+.plum-bloom { opacity: 0; transform: scale(.78) rotate(-3deg); }
+.static-composition .plum-gesture {
+  position: absolute; left: 84.2%; top: 24.9%; width: 44px; height: 44px;
+  transform: translate(-50%, -50%); padding: 0; border: 0; border-radius: 50%;
+  background: transparent; color: var(--plum); pointer-events: auto; cursor: pointer;
+}
+.plum-gesture:disabled { pointer-events: none; cursor: default; }
+.falling-petal { pointer-events: none; }
+.static-composition .plum-is-open .plum-bloom {
+  animation: plum-unfold var(--bloom-duration, 1.9s) cubic-bezier(.22,.61,.36,1) var(--bloom-delay, 0s) both !important;
+}
+.static-composition .plum-is-open .plum-bloom.has-bloomed {
+  animation: none !important; opacity: var(--bloom-opacity, .88); transform: none;
+}
+.seal-group { position: relative; }
+.static-composition .seal-toggle {
+  appearance: none; background: transparent; padding: 0; cursor: pointer;
+  font-weight: 400; line-height: inherit;
+}
+.brand-home { display: inline-flex; align-items: center; }
+.static-composition .seal-note {
+  position: absolute; top: calc(100% + 14px); left: 0; z-index: 2;
+  width: min(326px, calc(100vw - 48px)); padding: 24px;
+  background: var(--paper); border: 1px solid var(--line); border-top: 2px solid var(--plum);
+  color: var(--ink); letter-spacing: .015em; text-align: left;
+  opacity: 0; transform: translateY(-4px); pointer-events: none;
+  transition: opacity .22s ease-out, transform .22s ease-out !important;
+}
+.seal-note[hidden] { display: none; }
+.static-composition .seal-note.is-open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.seal-note h2 { font: 400 21px/1.5 var(--book); margin: 0 28px 14px 0; }
+.seal-note p { font-size: 14px; line-height: 1.85; margin: 0; }
+.seal-note .seal-note-colophon { color: var(--warm); font-size: 12px; margin-top: 16px; }
+.seal-close { position: absolute; top: 8px; right: 6px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--muted); font-family: inherit; font-size: 23px; font-weight: 400; line-height: 1; cursor: pointer; }
+/* Nested under stage-two artwork: its scroll displacement remains untouched. */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .plum-canvas { transform: translate3d(var(--plum-pointer-x, 0px), var(--plum-pointer-y, 0px), 0); }
+}
+@keyframes plum-unfold {
+  from { opacity: 0; transform: scale(.78) rotate(-3deg); }
+  to { opacity: var(--bloom-opacity, .88); transform: scale(1) rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .static-composition .plum-is-open .plum-bloom { animation: none !important; opacity: var(--bloom-opacity, .88); transform: none; }
+  .plum-canvas { transform: none !important; }
+  .plum-petals { display: none; }
+  .static-composition .seal-note { transition: none !important; transform: none; }
+}
+@media print { .plum-overlay, .plum-gesture, .seal-note { display: none !important; } }
